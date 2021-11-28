@@ -25,7 +25,7 @@ public class CreatingContact {
 
             webDriver.get("https://crm.geekbrains.space/");
 
-            webDriver.manage().window().setSize(new Dimension(1500, 720));
+            webDriver.manage().window().setSize(new Dimension(1000, 720));
 
             webDriver.findElement(By.name("_username")).sendKeys("Applanatest1");
             webDriver.findElement(By.name("_password")).sendKeys("Student2020!");

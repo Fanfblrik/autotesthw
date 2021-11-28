@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -15,13 +16,17 @@ import java.util.concurrent.TimeUnit;
 public class CreatingProject {
 
     public static void main(String[] args) throws InterruptedException {
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--incognito");
+
         WebDriver webDriver = WebDriverManager.chromedriver().create();
 
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         webDriver.get("https://crm.geekbrains.space/");
 
-        webDriver.manage().window().setSize(new Dimension(1500, 720));
+        webDriver.manage().window().setSize(new Dimension(1000, 720));
 
         webDriver.findElement(By.name("_username")).sendKeys("Applanatest1");
         webDriver.findElement(By.name("_password")).sendKeys("Student2020!");
