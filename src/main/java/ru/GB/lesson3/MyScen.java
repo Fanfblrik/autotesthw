@@ -52,7 +52,7 @@ public class MyScen {
         webDriver.findElement(By.name("cgv")).click();
         webDriver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span")).click();
         new WebDriverWait(webDriver, 8).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(), 'In stock\t')]")));
-        
+
         Thread.sleep(5000);
 
         webDriver.quit();
