@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,14 +31,14 @@ public class MyScen {
         webDriver.findElement(By.xpath("//span[contains(text(),'Add to cart')]")).click();
         webDriver.findElement(By.xpath("//span[contains(text(),'Proceed to checkout')]")).click();
         //new WebDriverWait(webDriver, 10, 500)
-       //         .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'Proceed to checkout')]")))
+        //         .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'Proceed to checkout')]")))
         //        .click();
         webDriver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
 
         webDriver.findElement(By.name("email")).sendKeys("example@mail.ru");
         webDriver.findElement(By.name("passwd")).sendKeys("11111");
         webDriver.findElement(By.name("SubmitLogin")).click();
-       // webDriver.findElement(By.xpath("//span[text()='Add a new address']")).click();
+        // webDriver.findElement(By.xpath("//span[text()='Add a new address']")).click();
         webDriver.findElement(By.name("lastname")).sendKeys("Иванов");
         webDriver.findElement(By.name("firstname")).sendKeys("Иван");
         webDriver.findElement(By.name("address1")).sendKeys("Moscow Red Square");
@@ -52,7 +52,10 @@ public class MyScen {
         webDriver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
         webDriver.findElement(By.name("cgv")).click();
         webDriver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span")).click();
-        new WebDriverWait(webDriver, 8).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(), 'In stock\t')]")));
+        //new WebDriverWait(webDriver, 8).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(), 'In stock\t')]")));
+
+        assertThat(webDriver.findElement(By.xpath("//*[contains(text(), 'In stock')]")).getText())
+                .isEqualTo("In stock");
 
         Thread.sleep(5000);
 
