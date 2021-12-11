@@ -1,5 +1,6 @@
 package lesson6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class PaymentPage extends BasicView {
         super(webDriver);
     }
 
+    @Step("Проверить оформление заказа")
     public StuffPage orderCheck() {
         assertThat(text.getText())
                 .isEqualTo("In stock");

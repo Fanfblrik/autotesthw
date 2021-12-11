@@ -1,5 +1,6 @@
 package lesson6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,7 @@ public class LoginPage extends BasicView {
         super(webDriver);
     }
 
+    @Step("Авторизоваться юзером {0} с паролем {1}")
     public MyAccountPage loginAccount(String email, String password) {
         this.email.sendKeys(email);
         passwd.sendKeys(password);
@@ -26,6 +28,7 @@ public class LoginPage extends BasicView {
         return new MyAccountPage(webDriver);
     }
 
+    @Step("Авторизоваться юзером {0} с паролем {1}")
     public MagazinePage loginMagazine(String email, String password) {
         this.email.sendKeys(email);
         passwd.sendKeys(password);
