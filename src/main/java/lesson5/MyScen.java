@@ -26,7 +26,7 @@ public class MyScen {
 
         webDriver.manage().window().setSize(new Dimension(1000, 720));
 
-        webDriver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[3]/a")).click();
+        webDriver.findElement(By.xpath("//li[3]/a[(text()='T-shirts')]")).click();
         webDriver.findElement(By.xpath("//a[contains(text(),'Faded Short Sleeve T-shirts')]")).click();
         webDriver.findElement(By.xpath("//span[contains(text(),'Add to cart')]")).click();
         webDriver.findElement(By.xpath("//span[contains(text(),'Proceed to checkout')]")).click();
@@ -51,7 +51,7 @@ public class MyScen {
         webDriver.findElement(By.name("submitAddress")).click();
         webDriver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
         webDriver.findElement(By.name("cgv")).click();
-        webDriver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span")).click();
+        webDriver.findElement(By.name("processCarrier")).click();
         //new WebDriverWait(webDriver, 8).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(), 'In stock\t')]")));
 
         assertThat(webDriver.findElement(By.xpath("//*[contains(text(), 'In stock')]")).getText())

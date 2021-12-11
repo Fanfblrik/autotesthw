@@ -19,10 +19,17 @@ public class LoginPage extends BasicView {
         super(webDriver);
     }
 
-    public MyAccountPage login(String email, String password) {
+    public MyAccountPage loginAccount(String email, String password) {
         this.email.sendKeys(email);
         passwd.sendKeys(password);
         submitLogin.click();
         return new MyAccountPage(webDriver);
+    }
+
+    public MagazinePage loginMagazine(String email, String password) {
+        this.email.sendKeys(email);
+        passwd.sendKeys(password);
+        submitLogin.click();
+        return new MagazinePage(webDriver);
     }
 }

@@ -42,7 +42,9 @@ class MyScenTest {
         webDriver.findElement(By.name("email")).sendKeys("example@mail.ru");
         webDriver.findElement(By.name("passwd")).sendKeys("11111");
         webDriver.findElement(By.name("SubmitLogin")).click();
+
         // webDriver.findElement(By.xpath("//span[text()='Add a new address']")).click();
+
         webDriver.findElement(By.name("lastname")).sendKeys("Иванов");
         webDriver.findElement(By.name("firstname")).sendKeys("Иван");
         webDriver.findElement(By.name("address1")).sendKeys("Moscow Red Square");
@@ -53,6 +55,7 @@ class MyScenTest {
         webDriver.findElement(By.name("phone_mobile")).sendKeys("88005553536");
         new Select(webDriver.findElement(By.name("id_state"))).selectByVisibleText("Alabama");
         webDriver.findElement(By.name("submitAddress")).click();
+
         webDriver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
         webDriver.findElement(By.name("cgv")).click();
         webDriver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span")).click();

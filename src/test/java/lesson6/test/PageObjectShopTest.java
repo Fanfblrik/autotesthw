@@ -25,11 +25,30 @@ public class PageObjectShopTest extends BasicTest {
         webDriver.get(URL + "?controller=authentication&back=my-account");
 
         new LoginPage(webDriver)
-                .login(email, password)
+                .loginAccount(email, password)
                 .clickPersonalInformation()
                 .changeFirstName(name, password)
                 .backToAccount()
                 .clickPersonalInformation()
                 .checkFirstName(name);
+    }
+
+    @Test
+    @DisplayName("Работа с магазином: Добавление товара")
+    void addStuffTest() {
+
+        webDriver.get(URL + "?controller=authentication&back=my-account");
+
+        new LoginPage(webDriver)
+                .loginMagazine(email, password)
+                .chooseCategory()
+                .chooseStuff()
+                .addStuff()
+                .proceedStuff()
+                .proceedOrder()
+                .addressAdd()
+                .proceedingOrder()
+                .confirmOrder()
+                .orderCheck();
     }
 }
