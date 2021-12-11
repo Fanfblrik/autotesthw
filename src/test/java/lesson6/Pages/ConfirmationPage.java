@@ -1,5 +1,6 @@
 package lesson6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ public class ConfirmationPage extends BasicView {
         super(webDriver);
     }
 
+    @Step("Оформить заказ")
     public PaymentPage confirmOrder() {
         checkBox.click();
         confirmBtn.click();

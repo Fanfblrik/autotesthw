@@ -1,5 +1,6 @@
 package lesson6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,7 @@ public class TShirtsPage extends BasicView {
         super(webDriver);
     }
 
+    @Step("Выбрать товар")
     public StuffPage chooseStuff() {
         tShirt.click();
         return new StuffPage(webDriver);

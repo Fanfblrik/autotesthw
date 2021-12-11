@@ -1,5 +1,8 @@
 package lesson6.test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import lesson5.BasicTest;
 import lesson6.Pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
@@ -18,23 +21,9 @@ public class PageObjectShopTest extends BasicTest {
     private final Faker faker = new Faker(new Locale("ru"));
 
     @Test
-    @DisplayName("Редактирование профиля: Изменить имя")
-    void changeFirstNameTest() {
-        String name = faker.name().firstName();
-
-        webDriver.get(URL + "?controller=authentication&back=my-account");
-
-        new LoginPage(webDriver)
-                .loginAccount(email, password)
-                .clickPersonalInformation()
-                .changeFirstName(name, password)
-                .backToAccount()
-                .clickPersonalInformation()
-                .checkFirstName(name);
-    }
-
-    @Test
     @DisplayName("Работа с магазином: Добавление товара")
+    @Description("В этом тесте мы добавляем товар в корзину и доходим до этапа оплаты")
+    @Severity(SeverityLevel.BLOCKER)
     void addStuffTest() {
 
         webDriver.get(URL + "?controller=authentication&back=my-account");
